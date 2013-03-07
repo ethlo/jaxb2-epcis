@@ -48,9 +48,9 @@
 		</plugins>	
 	</build>
   <scm>
-		<url>http://github.com:ethlo/jaxb2-epcglobal-epedigree-1.0</url>
-		<connection>scm:git:git@github.com:ethlo/jaxb2-epcglobal-epedigree-1.0.git</connection>
-		<developerConnection>scm:git:git@github.com:ethlo/jaxb2-epcglobal-epedigree-1.0.git</developerConnection>
+		<url>http://github.com:ethlo/eclipselink-maven-plugin</url>
+		<connection>scm:git:git@github.com:ethlo/eclipselink-maven-plugin.git</connection>
+		<developerConnection>scm:git:git@github.com:ethlo/eclipselink-maven-plugin.git</developerConnection>
 	</scm>
 	<distributionManagement>
 	  <repository>
