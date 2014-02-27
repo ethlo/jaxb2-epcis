@@ -1,4 +1,4 @@
-Jaxb2 GS1 EPCIS bindings
+jaxb2 epcglobal epedigree bindings
 ==================================
 
 This artifact is simply JAXB2 generated classes of the GS1 EPCIS schemas.
