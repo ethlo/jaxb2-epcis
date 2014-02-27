@@ -1,5 +1,15 @@
 <bindings version="1.0" xmlns="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
+    <globalBindings>
+        <javaType name="java.util.Date" xmlType="xs:date"
+                  parseMethod="com.ethlo.jaxb2.util.DateConverter.parseDate"
+                  printMethod="com.ethlo.jaxb2.util.DateConverter.printDate" />
+
+        <javaType name="java.util.Date" xmlType="xs:dateTime"
+                  parseMethod="com.ethlo.jaxb2.util.DateConverter.parseDateTime"
+                  printMethod="com.ethlo.jaxb2.util.DateConverter.printDateTime" />                  
+    </globalBindings>
+
 	<bindings schemaLocation="epcis10/epcis/soapfault.xsd">
         <schemaBindings>
 			<package name="com.kezzler.epcis.v10.query" />
