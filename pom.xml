@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ethlo.gs1</groupId>
     <artifactId>jaxb2-epcis</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.2.0</version>
     <name>JAXB2-EPCIS bindings</name>
     <description>Generated JAXB2 classes based on the GS1 EPCIS specification</description>
     <licenses>
