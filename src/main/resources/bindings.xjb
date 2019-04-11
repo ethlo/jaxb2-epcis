@@ -6,7 +6,7 @@
 
     <jaxb:bindings scd="x-schema::a" xmlns:a="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
         <jaxb:schemaBindings>
-            <jaxb:package name="org.unece.sbd"/>
+            <jaxb:package name="org.unece.sbdh"/>
         </jaxb:schemaBindings>
     </jaxb:bindings>
 
