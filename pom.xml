@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ethlo.gs1</groupId>
     <artifactId>jaxb2-epcis</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.0.1-SNAPSHOT</version>
     <name>JAXB2-EPCIS bindings</name>
     <description>Generated JAXB2 classes based on the GS1 EPCIS specification</description>
     <licenses>
@@ -38,7 +38,6 @@
                 </executions>
                 <configuration>
                     <laxSchemaValidation>true</laxSchemaValidation>
-                    <packageName>com.gs1.epcis</packageName>
                     <sources>
                         <source>src/main/resources</source>
                     </sources>
@@ -61,7 +60,6 @@
                     </dependency>
                 </dependencies>
             </plugin>
-
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
@@ -95,11 +93,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>**/*BenchmarkTest.java</exclude>
-                    </excludes>
-                </configuration>
                 <version>2.22.1</version>
             </plugin>
             <plugin>
@@ -113,6 +106,9 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <excludeResources>true</excludeResources>
+                </configuration>
                 <version>3.0.1</version>
             </plugin>
             <plugin>
