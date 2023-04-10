@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ethlo.gs1</groupId>
     <artifactId>jaxb2-epcis</artifactId>
-    <version>1.3.0</version>
+    <version>1.2.1</version>
     <name>JAXB2-EPCIS bindings</name>
     <description>Generated JAXB2 classes based on the GS1 EPCIS specification</description>
     <dependencies>
@@ -172,7 +172,7 @@
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.5</version>
+                <version>1.6.13</version>
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>sonatype-nexus-staging</serverId>
