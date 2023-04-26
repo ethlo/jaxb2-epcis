@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ethlo.gs1</groupId>
     <artifactId>jaxb2-epcis</artifactId>
-    <version>1.2.1</version>
+    <version>1.2.2</version>
     <name>JAXB2-EPCIS bindings</name>
     <description>Generated JAXB2 classes based on the GS1 EPCIS specification</description>
     <dependencies>
         <dependency>
             <groupId>com.ethlo.unece</groupId>
             <artifactId>jaxb2-sbdh</artifactId>
-            <version>1.1.0</version>
+            <version>1.1.1</version>
         </dependency>
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
@@ -58,7 +58,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>2.5.0</version>
+                <version>3.1.0</version>
                 <executions>
                     <execution>
                         <id>xjc</id>
@@ -68,12 +68,33 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <extension>true</extension>
                     <laxSchemaValidation>true</laxSchemaValidation>
                     <sources>
                         <source>src/main/resources</source>
                     </sources>
+                    <arguments>
+                        <argument>-Xfluent-api</argument>
+                        <argument>-XJsr303Annotations:validationAnnotations=jakarta</argument>
+                    </arguments>
                 </configuration>
                 <dependencies>
+                    <dependency>
+                        <groupId>net.java.dev.jaxb2-commons</groupId>
+                        <artifactId>jaxb-fluent-api</artifactId>
+                        <version>2.1.8</version>
+                        <exclusions>
+                            <exclusion>
+                                <groupId>com.sun.xml</groupId>
+                                <artifactId>jaxb-xjc</artifactId>
+                            </exclusion>
+                        </exclusions>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.fillumina</groupId>
+                        <artifactId>krasa-jaxb-tools</artifactId>
+                        <version>2.2</version>
+                    </dependency>
                     <dependency>
                         <groupId>org.glassfish.jaxb</groupId>
                         <artifactId>jaxb-xjc</artifactId>

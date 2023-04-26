@@ -4,11 +4,14 @@
                jaxb:extensionBindingPrefixes="xjc">
 
     <jaxb:globalBindings>
-        <xjc:simple />
-        <xjc:serializable uid="-1" />
-        <jaxb:javaType name="java.util.Calendar" xmlType="xs:dateTime"
-                       parseMethod="jakarta.xml.bind.DatatypeConverter.parseDateTime"
-                       printMethod="jakarta.xml.bind.DatatypeConverter.printDateTime" />
+        <jaxb:javaType name="java.time.LocalDate" xmlType="xs:date"
+                       parseMethod="com.ethlo.jaxb.DateConverter.parseDate"
+                       printMethod="com.ethlo.jaxb.DateConverter.printDate"/>
+
+        <jaxb:javaType name="java.time.OffsetDateTime" xmlType="xs:dateTime"
+                       parseMethod="com.ethlo.jaxb.DateConverter.parseDateTime"
+                       printMethod="com.ethlo.jaxb.DateConverter.printDateTime"/>
+
     </jaxb:globalBindings>
 
     <jaxb:bindings scd="x-schema::a" xmlns:a="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
