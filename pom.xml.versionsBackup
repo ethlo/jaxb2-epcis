@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ethlo.gs1</groupId>
     <artifactId>jaxb2-epcis</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>1.2.2</version>
     <name>JAXB2-EPCIS bindings</name>
     <description>Generated JAXB2 classes based on the GS1 EPCIS specification</description>
     <dependencies>
@@ -61,7 +61,7 @@
                 <version>3.2.0</version>
                 <executions>
                     <execution>
-                        <id>xjc</id>
+                        <id>xjc_2.0</id>
                         <goals>
                             <goal>xjc</goal>
                         </goals>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <jaxb:bindings version="3.0" xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb"
-               xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-               jaxb:extensionBindingPrefixes="xjc">
+               xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
     <jaxb:globalBindings>
         <jaxb:javaType name="java.time.LocalDate" xmlType="xs:date"
@@ -26,22 +25,32 @@
         </jaxb:schemaBindings>
     </jaxb:bindings>
 
-    <jaxb:bindings scd="x-schema::epcis" xmlns:epcis="urn:epcglobal:epcis:xsd:1">
+    <jaxb:bindings scd="x-schema::epcis" xmlns:epcis="urn:epcglobal:epcis:xsd:2">
         <jaxb:schemaBindings>
-            <jaxb:package name="com.gs1.epcis"/>
+            <jaxb:package name="com.gs1.epcis_2"/>
         </jaxb:schemaBindings>
     </jaxb:bindings>
 
-    <jaxb:bindings scd="x-schema::epcismasterdata" xmlns:epcismasterdata="urn:epcglobal:epcis-masterdata:xsd:1">
+    <jaxb:bindings scd="x-schema::epcismasterdata" xmlns:epcismasterdata="urn:epcglobal:epcis-masterdata:xsd:2">
         <jaxb:schemaBindings>
-            <jaxb:package name="com.gs1.epcis.masterdata"/>
+            <jaxb:package name="com.gs1.epcis_2.masterdata"/>
         </jaxb:schemaBindings>
     </jaxb:bindings>
 
-    <jaxb:bindings scd="x-schema::epcisquery" xmlns:epcisquery="urn:epcglobal:epcis-query:xsd:1">
+    <jaxb:bindings scd="x-schema::epcisquery" xmlns:epcisquery="urn:epcglobal:epcis-query:xsd:2">
         <jaxb:schemaBindings>
-            <jaxb:package name="com.gs1.epcis.query"/>
+            <jaxb:package name="com.gs1.epcis_2.query"/>
         </jaxb:schemaBindings>
     </jaxb:bindings>
+
+
+    <!-- rename the value element -->
+    <!--
+    <jaxb:bindings node="//xs:complexType[@name='SensorReportType']">
+        <jaxb:bindings node=".//xs:attribute[@name='value']">
+            <jaxb:property name="ValueAttribute"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+    -->
 
 </jaxb:bindings>
