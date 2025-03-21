@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ethlo.gs1</groupId>
     <artifactId>jaxb2-epcis</artifactId>
-    <version>1.2.2</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>JAXB2-EPCIS bindings</name>
     <description>Generated JAXB2 classes based on the GS1 EPCIS specification</description>
     <dependencies>
@@ -51,7 +51,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.3.1</version>
+                <version>3.4.1</version>
                 <executions>
                     <execution>
                         <id>default-jar</id>
@@ -70,31 +70,31 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.2.0</version>
                 <executions>
                     <execution>
                         <id>xjc</id>
                         <goals>
                             <goal>xjc</goal>
                         </goals>
+                        <configuration>
+                            <extension>true</extension>
+                            <laxSchemaValidation>true</laxSchemaValidation>
+                            <sources>
+                                <source>src/main/resources</source>
+                            </sources>
+                            <arguments>
+                                <argument>-Xfluent-api</argument>
+                                <argument>-XJsr303Annotations:validationAnnotations=jakarta</argument>
+                            </arguments>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <extension>true</extension>
-                    <laxSchemaValidation>true</laxSchemaValidation>
-                    <sources>
-                        <source>src/main/resources</source>
-                    </sources>
-                    <arguments>
-                        <argument>-Xfluent-api</argument>
-                        <argument>-XJsr303Annotations:validationAnnotations=jakarta</argument>
-                    </arguments>
-                </configuration>
                 <dependencies>
                     <dependency>
-                        <groupId>net.java.dev.jaxb2-commons</groupId>
-                        <artifactId>jaxb-fluent-api</artifactId>
-                        <version>2.1.8</version>
+                        <groupId>org.jvnet.jaxb2_commons</groupId>
+                        <artifactId>jaxb2-fluent-api</artifactId>
+                        <version>3.0</version>
                         <exclusions>
                             <exclusion>
                                 <groupId>com.sun.xml</groupId>
@@ -141,7 +141,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.8</version>
+                <version>0.8.12</version>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -195,7 +195,7 @@
                     <doclint>none</doclint>
                     <show>public</show>
                 </configuration>
-                <version>3.0.1</version>
+                <version>3.6.3</version>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -261,11 +261,11 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <gpg.skip>true</gpg.skip>
-        <version.maven.jakarta.xml.bind-api>3.0.0</version.maven.jakarta.xml.bind-api>
+        <version.maven.jakarta.xml.bind-api>4.0.2</version.maven.jakarta.xml.bind-api>
         <version.maven.jakarta.ws.rs-api>3.0.0</version.maven.jakarta.ws.rs-api>
         <version.maven.jakarta.activation.api>2.0.0</version.maven.jakarta.activation.api>
-        <version.maven.jaxb.impl>3.0.0</version.maven.jaxb.impl>
-        <version.maven.jaxb.xjc>3.0.0</version.maven.jaxb.xjc>
+        <version.maven.jaxb.impl>4.0.5</version.maven.jaxb.impl>
+        <version.maven.jaxb.xjc>4.0.5</version.maven.jaxb.xjc>
         <version.maven.servlet.api>5.0.0</version.maven.servlet.api>
     </properties>
 </project>
