@@ -91,7 +91,9 @@
                                 <!-- Inject xs:any just before </xs:sequence> -->
                                 <replacement>
                                     <token>(?s)(\\s*)&lt;/xs:sequence&gt;</token>
-                                    <value>$1&lt;xs:any namespace=&quot;##any&quot; processContents=&quot;lax&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;/&gt;\n$1&lt;/xs:sequence&gt;</value>
+                                    <value>$1&lt;xs:any namespace=&quot;##any&quot; processContents=&quot;lax&quot;
+                                        minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;/&gt;\n$1&lt;/xs:sequence&gt;
+                                    </value>
                                 </replacement>
 
                                 <!-- Inject xs:anyAttribute just before </xs:complexType> -->
@@ -262,14 +264,12 @@
                 <version>2.3</version>
             </plugin>
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.13</version>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.8.0</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <serverId>sonatype-nexus-staging</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    <publishingServerId>central</publishingServerId>
                 </configuration>
             </plugin>
             <plugin>
@@ -306,7 +306,7 @@
         </repository>
         <snapshotRepository>
             <id>sonatype-nexus-snapshots</id>
-            <name>Nexus Snapshot repository</name>
+            <name>Nexus Snapshot Repository</name>
             <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
