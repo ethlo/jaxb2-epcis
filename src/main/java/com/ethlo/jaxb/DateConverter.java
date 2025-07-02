@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 public class DateConverter {
-    private static boolean xsdStandard;
+    private static boolean xsdStandard = true;
 
     private DateConverter() {
     }
@@ -53,5 +53,9 @@ public class DateConverter {
         return Optional.ofNullable(dateTime)
                 .map(d -> d.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")))
                 .orElse(null);
+    }
+
+    public static boolean isUseXsdStandard() {
+        return xsdStandard;
     }
 }

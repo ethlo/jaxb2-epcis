@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ethlo.gs1</groupId>
     <artifactId>jaxb2-epcis</artifactId>
-    <version>1.2.3</version>
+    <version>1.2.4</version>
     <name>JAXB2-EPCIS bindings</name>
     <description>Generated JAXB2 classes based on the GS1 EPCIS specification</description>
     <dependencies>
@@ -50,6 +50,61 @@
     <build>
         <plugins>
             <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-schemas</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/modified-schemas</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources</directory>
+                                    <includes>
+                                        <include>**/*.xsd</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.google.code.maven-replacer-plugin</groupId>
+                <artifactId>replacer</artifactId>
+                <version>1.5.3</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>${project.build.directory}/modified-schemas/**/*.xsd</include>
+                            </includes>
+                            <replacements>
+                                <!-- Inject xs:any just before </xs:sequence> -->
+                                <replacement>
+                                    <token>(?s)(\\s*)&lt;/xs:sequence&gt;</token>
+                                    <value>$1&lt;xs:any namespace=&quot;##any&quot; processContents=&quot;lax&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;/&gt;\n$1&lt;/xs:sequence&gt;</value>
+                                </replacement>
+
+                                <!-- Inject xs:anyAttribute just before </xs:complexType> -->
+                                <replacement>
+                                    <token>(?s)(\\s*)&lt;/xs:complexType&gt;</token>
+                                    <value>$1&lt;xs:anyAttribute namespace=&quot;##any&quot; processContents=&quot;lax&quot;/&gt;\n$1&lt;/xs:complexType&gt;</value>
+                                </replacement>
+                            </replacements>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.4.1</version>
                 <executions>
@@ -74,14 +129,18 @@
                 <executions>
                     <execution>
                         <id>xjc</id>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>xjc</goal>
                         </goals>
                         <configuration>
+                            <xjbSources>
+                                <xjbSource>${project.basedir}/src/main/resources/bindings.xjb</xjbSource>
+                            </xjbSources>
                             <extension>true</extension>
                             <laxSchemaValidation>true</laxSchemaValidation>
                             <sources>
-                                <source>src/main/resources</source>
+                                <source>target/modified-schemas</source>
                             </sources>
                             <arguments>
                                 <argument>-Xfluent-api</argument>

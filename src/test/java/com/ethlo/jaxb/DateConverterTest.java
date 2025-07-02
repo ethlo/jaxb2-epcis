@@ -27,7 +27,7 @@ class DateConverterTest {
     @Test
     void printDateTimeZeroSeconds() {
         final OffsetDateTime input = OffsetDateTime.of(2000, 1, 6, 23, 0, 0, 0, ZoneOffset.UTC);
-        DateConverter.setUseXsdStandard(true);
+        assertThat(DateConverter.isUseXsdStandard()).isTrue();
         assertThat(DateConverter.printDateTime(input)).isEqualTo("2000-01-06T23:00:00Z");
         DateConverter.setUseXsdStandard(false);
         assertThat(DateConverter.printDateTime(input)).isEqualTo("2000-01-06T23:00:00.000Z");
