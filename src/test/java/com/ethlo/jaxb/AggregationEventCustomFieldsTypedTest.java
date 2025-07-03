@@ -47,13 +47,14 @@ public class AggregationEventCustomFieldsTypedTest {
                 .filter(o -> o instanceof Element)
                 .map(o -> (Element) o)
                 .findFirst().orElseThrow();
-        assertThat(expiryDateElement.getTagName()).isEqualTo("example:ArticleAttrExpiryDate");
+        assertThat(expiryDateElement.getLocalName()).isEqualTo("ArticleAttrExpiryDate");
+        assertThat(expiryDateElement.getNamespaceURI()).isEqualTo("http://example.com/ns");
         assertThat(expiryDateElement.getTextContent()).isEqualTo("2024-03-13T09:15:14.000Z");
 
         final String attrWeight = aggregationEvent.getAny().stream()
                 .filter(Element.class::isInstance)
                 .map(Element.class::cast)
-                .filter(el -> "example:AttrWeigthKGM".equals(el.getTagName()))
+                .filter(el -> "AttrWeigthKGM".equals(el.getLocalName()) && "http://example.com/ns".equals(el.getNamespaceURI()))
                 .map(Element::getTextContent)
                 .findFirst()
                 .orElse(null);
