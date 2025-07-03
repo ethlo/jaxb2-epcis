@@ -1,5 +1,6 @@
 package com.ethlo.jaxb;
 
+
 import com.gs1.epcis.EPCISDocumentType;
 import com.gs1.epcis.ObjectEventType;
 import jakarta.xml.bind.JAXBContext;
@@ -10,7 +11,6 @@ import org.w3c.dom.Element;
 
 import java.io.StringReader;
 import java.util.List;
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

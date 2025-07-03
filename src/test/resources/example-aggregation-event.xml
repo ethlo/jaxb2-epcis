@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<epcis:EPCISDocument xmlns:epcis="urn:epcglobal:epcis:xsd:1" xmlns:example="http://example.net/example/"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" creationDate="2021-04-06T02:16:50.14Z" schemaVersion="1.2">
+    <EPCISBody>
+        <EventList>
+            <AggregationEvent>
+                <eventTime>2025-05-30T13:02:00Z</eventTime>
+                <recordTime>2025-05-30T13:02:00Z</recordTime>
+                <eventTimeZoneOffset>+01:00</eventTimeZoneOffset>
+                <parentID>urn:epc:id:grai:7613265.00360.900000990930</parentID>
+                <childEPCs>
+                    <epc>urn:epc:id:sgtin:7482931.013167.0</epc>
+                </childEPCs>
+                <action>OBSERVE</action>
+                <bizStep>urn:epcglobal:cbv:bizstep:picking</bizStep>
+                <disposition>urn:epcglobal:cbv:disp:in_progress</disposition>
+                <readPoint>
+                    <id>urn:epc:id:sgln:7617102.03870.10000000000000999999</id>
+                </readPoint>
+                <bizLocation>
+                    <id>urn:epc:id:sgln:7617102.03870.10000000000000999999</id>
+                </bizLocation>
+                <bizTransactionList>
+                    <bizTransaction type="urn:epcglobal:cbv:btt:po">urn:epcglobal:cbv:bt:7617007000006:0028800145</bizTransaction>
+                </bizTransactionList>
+                <extension>
+                    <childQuantityList>
+                        <quantityElement>
+                            <epcClass>urn:epc:class:lgtin:7482931.013167.734126</epcClass>
+                            <quantity>10</quantity>
+                            <example:ArticleAttrExpiryDate xmlns:example="http://example.net/example/">2024-03-13T09:15:14.000Z</example:ArticleAttrExpiryDate>
+                        </quantityElement>
+                    </childQuantityList>
+                    <sourceList>
+                        <source type="http://example.net/example/ele/dest/SU">urn:epc:id:sgln:7482932.98138.0</source>
+                    </sourceList>
+                    <destinationList>
+                        <destination type="http://example.net/example/ele/dest/DP">urn:epc:id:sgln:7482932.98139.0</destination>
+                        <destination type="http://example.net/example/ele/dest/UC">urn:epc:id:sgln:7482932.98140.0</destination>
+                    </destinationList>
+                </extension>
+                <example:AttrWeigthKGM>10.050</example:AttrWeigthKGM>
+                <example:AttrHeightCMT>25</example:AttrHeightCMT>
+                <example:AttrCoolingStatus>K</example:AttrCoolingStatus>
+                <example:AttrHazardStatement>X300</example:AttrHazardStatement>
+                <example:AttrDeliveryTime>2023-07-01T00:00:00.000+01:00</example:AttrDeliveryTime>
+            </AggregationEvent>
+        </EventList>
+    </EPCISBody>
+</epcis:EPCISDocument>
