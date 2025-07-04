@@ -57,23 +57,22 @@
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
-                <executions>
-                    <execution>
-                        <id>compile-xsdfixer</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                        <configuration>
-                            <source>17</source>
-                            <target>17</target>
-                            <compileSourceRoots>
-                                <compileSourceRoot>${basedir}/src/main/java</compileSourceRoot>
-                            </compileSourceRoots>
-                        </configuration>
-                    </execution>
-                </executions>
+                <version>3.10.1</version> <executions>
+                <execution>
+                    <id>compile-xsdfixer</id>
+                    <phase>generate-sources</phase>
+                    <goals>
+                        <goal>compile</goal>
+                    </goals>
+                    <configuration>
+                        <source>17</source>
+                        <target>17</target>
+                        <compileSourceRoots>
+                            <compileSourceRoot>${basedir}/src/tools/java</compileSourceRoot>
+                        </compileSourceRoots>
+                    </configuration>
+                </execution>
+            </executions>
             </plugin>
 
             <plugin>
@@ -82,13 +81,12 @@
                 <version>3.1.0</version>
                 <executions>
                     <execution>
-                        <id>fix-xsds</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
+                        <id>process-xsd-any</id>
+                        <phase>generate-sources</phase> <goals>
+                        <goal>java</goal>
+                    </goals>
                         <configuration>
-                            <mainClass>com.ethlo.util.XsdAnyInserter</mainClass>
+                            <mainClass>com.ethlo.tools.XsdAnyInserter</mainClass>
                             <arguments>
                                 <argument>${project.basedir}/src/main/resources</argument>
                                 <argument>${project.build.directory}/modified-schemas</argument>
@@ -165,8 +163,6 @@
                     </dependency>
                 </dependencies>
             </plugin>
-
-
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.4.1</version>
@@ -179,8 +175,11 @@
                         </goals>
                         <configuration>
                             <includes>
-                                <exclude>com/**/*.class</exclude>
+                                <include>com/**/*.class</include>
                             </includes>
+                            <excludes>
+                                <exclude>com/ethlo/tools/*.class</exclude>
+                            </excludes>
                         </configuration>
                     </execution>
                 </executions>

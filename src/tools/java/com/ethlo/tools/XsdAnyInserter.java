@@ -1,4 +1,4 @@
-package com.ethlo.util;
+package com.ethlo.tools;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

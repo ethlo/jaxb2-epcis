@@ -1,6 +1,5 @@
-package com.ethlo.jaxb;
+package com.ethlo.tools;
 
-import com.ethlo.util.XsdAnyInserter;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
