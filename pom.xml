@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ethlo.gs1</groupId>
     <artifactId>jaxb2-epcis</artifactId>
-    <version>1.2.5</version>
+    <version>1.2.6</version>
     <name>JAXB2-EPCIS bindings</name>
     <description>Generated JAXB2 classes based on the GS1 EPCIS specification</description>
     <dependencies>
@@ -13,6 +13,11 @@
             <groupId>com.ethlo.unece</groupId>
             <artifactId>jaxb2-sbdh</artifactId>
             <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jvnet.jaxb</groupId>
+            <artifactId>jaxb-plugins-runtime</artifactId>
+            <version>4.0.11</version>
         </dependency>
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
@@ -23,19 +28,19 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.9.1</version>
+            <version>5.12.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jaxb</groupId>
             <artifactId>jaxb-runtime</artifactId>
-            <version>4.0.2</version>
+            <version>4.0.6</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.27.3</version>
+            <version>3.27.4</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -57,22 +62,23 @@
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version> <executions>
-                <execution>
-                    <id>compile-xsdfixer</id>
-                    <phase>generate-sources</phase>
-                    <goals>
-                        <goal>compile</goal>
-                    </goals>
-                    <configuration>
-                        <source>17</source>
-                        <target>17</target>
-                        <compileSourceRoots>
-                            <compileSourceRoot>${basedir}/src/tools/java</compileSourceRoot>
-                        </compileSourceRoots>
-                    </configuration>
-                </execution>
-            </executions>
+                <version>3.10.1</version>
+                <executions>
+                    <execution>
+                        <id>compile-xsdfixer</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                        <configuration>
+                            <source>17</source>
+                            <target>17</target>
+                            <compileSourceRoots>
+                                <compileSourceRoot>${basedir}/src/tools/java</compileSourceRoot>
+                            </compileSourceRoots>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
@@ -82,9 +88,10 @@
                 <executions>
                     <execution>
                         <id>process-xsd-any</id>
-                        <phase>generate-sources</phase> <goals>
-                        <goal>java</goal>
-                    </goals>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
                         <configuration>
                             <mainClass>com.ethlo.tools.XsdAnyInserter</mainClass>
                             <arguments>
@@ -119,6 +126,9 @@
                             </sources>
                             <arguments>
                                 <argument>-Xfluent-api</argument>
+                                <argument>-Xequals</argument>
+                                <argument>-XhashCode</argument>
+                                <argument>-XtoString</argument>
                                 <argument>-XJsr303Annotations:validationAnnotations=jakarta</argument>
                             </arguments>
                         </configuration>
@@ -135,6 +145,11 @@
                                 <artifactId>jaxb-xjc</artifactId>
                             </exclusion>
                         </exclusions>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.jvnet.jaxb</groupId>
+                        <artifactId>jaxb-plugins</artifactId>
+                        <version>4.0.0</version>
                     </dependency>
                     <dependency>
                         <groupId>com.fillumina</groupId>
