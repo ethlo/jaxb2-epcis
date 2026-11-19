@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ethlo.gs1</groupId>
     <artifactId>jaxb2-epcis</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>0-SNAPSHOT</version>
     <name>JAXB2-EPCIS bindings</name>
     <description>Generated JAXB2 classes based on the GS1 EPCIS specification</description>
     <dependencies>
@@ -141,7 +141,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.11</version>
+                <version>0.8.16</version>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -162,7 +162,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.1</version>
+                <version>3.5.6</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -230,13 +230,6 @@
                 </configuration>
             </plugin>
         </plugins>
-        <extensions>
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-ssh</artifactId>
-                <version>2.12</version>
-            </extension>
-        </extensions>
     </build>
     <scm>
         <url>https://github.com:ethlo/jaxb2-epcis</url>
